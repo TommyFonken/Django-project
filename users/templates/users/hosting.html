@@ -1,0 +1,37 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'users/css/main.css' %}">
+    <body style="background-image: url('../../static/users/images/background.jpg');background-repeat: no-repeat;background-attachment: fixed; "></body>
+    <div class="form">
+        <h1>Choose your preferred option</h1>
+        <form method="post" action="{% url 'hosting' %}">
+            {% csrf_token %}
+            <label for="option">Select an option:</label>
+            <select id="option" name="option">
+                <option value="LAMP">LAMP</option>
+                <option value="WordPress">WordPress</option>
+            </select>
+            <br><br>
+            <label for="hostname">Hostname:</label>
+            <input type="text" id="hostname" name="hostname">
+            <br><br>
+       
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <br><br>
+            <label for="password">password:</label>
+            <input type="text" id="password" name="password">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if error_message %}
+        <p>{{ error_message }}</p>
+        {% endif %}
+
+        {% if success_message %}
+        <p>{{ success_message }}</p>
+        {% endif %}
+    </div>
+</body>
+    {% endblock content %}

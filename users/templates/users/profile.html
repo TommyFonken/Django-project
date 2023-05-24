@@ -1,0 +1,13 @@
+
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<body style="background-image: url('../../static/users/images/background.jpg');background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+    <div class="container">
+        <h2>{{user.username}}</h2>
+    <h2>{{user.email}}</h2>
+    </div>
+</body>    
+{% endblock %}
